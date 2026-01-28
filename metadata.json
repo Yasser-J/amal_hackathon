@@ -1,0 +1,7 @@
+{
+  "name": "Regulatory Expert Dashboard",
+  "description": "An AI-powered digital assistant and dashboard for government authority submission validation and regulatory monitoring.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
