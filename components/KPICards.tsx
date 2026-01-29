@@ -85,17 +85,24 @@ const KPICards: React.FC<KPICardsProps> = ({ timeFilter, sectorFilter, language 
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
       {kpis.map((kpi) => (
-        <div key={kpi.label} className="bg-white dark:bg-[#1e293b] p-6 rounded-[2rem] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] hover:shadow-xl transition-all duration-500 group border border-transparent hover:border-emerald-500/10 hover-lift">
-          <div className="flex items-center justify-between mb-6">
-            <div className={`p-4 rounded-2xl ${kpi.color} group-hover:scale-110 transition-transform duration-500`}>
-              {kpi.icon}
+        <div
+          key={kpi.label}
+          className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] px-4 py-4 rounded-2xl shadow-[0_6px_24px_-10px_rgba(0,0,0,0.08)] hover:shadow-lg transition-all duration-300 group border border-transparent hover:border-slate-500/20 hover-lift"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className={`p-2.5 rounded-xl ${kpi.color} group-hover:scale-110 transition-transform duration-300`}>
+              {React.cloneElement(kpi.icon as React.ReactElement<any>, { size: 18 })}
             </div>
           </div>
-          <div className="text-start">
-            <h3 className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter leading-none">{kpi.value}</h3>
-            <p className="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-widest mt-3">{kpi.label}</p>
+          <div className="text-start space-y-1">
+            <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-none">
+              {kpi.value}
+            </h3>
+            <p className="text-[9px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-[0.18em]">
+              {kpi.label}
+            </p>
           </div>
         </div>
       ))}

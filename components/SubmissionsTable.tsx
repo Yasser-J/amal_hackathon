@@ -57,7 +57,7 @@ const SubmissionsTable: React.FC<SubmissionsTableProps> = ({ language, sectorFil
   };
 
   return (
-    <div className="bg-white dark:bg-[#1e293b] rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col border border-gray-50 dark:border-slate-800 transition-all animate-universal">
+    <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col border border-gray-50 dark:border-slate-800 transition-all animate-universal">
       <div className="p-8 border-b border-gray-50 dark:border-slate-800 flex flex-col gap-6">
         <div className="flex items-center justify-between">
           <div className="text-start">
@@ -65,7 +65,7 @@ const SubmissionsTable: React.FC<SubmissionsTableProps> = ({ language, sectorFil
             <p className="text-[13px] text-slate-500 dark:text-slate-400 mt-1 font-medium">{t.manageSubmissions}</p>
           </div>
           <div className="flex items-center gap-3 relative">
-            <span className="text-xs font-bold text-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 px-3 py-1.5 rounded-xl border border-emerald-100 dark:border-emerald-500/10">
+            <span className="text-xs font-bold text-[#004A78] bg-[var(--edix-primary-surface)] dark:bg-[var(--edix-surface-dark-3)] px-3 py-1.5 rounded-xl border border-slate-100 dark:border-slate-700">
               {filteredData.length} {t.results.toLowerCase()}
             </span>
             <button 
@@ -96,14 +96,14 @@ const SubmissionsTable: React.FC<SubmissionsTableProps> = ({ language, sectorFil
               placeholder={t.searchPlaceholder}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className={`w-full ${language === 'ar' ? 'pr-12 pl-6' : 'pl-12 pr-6'} py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 rounded-2xl text-[13px] font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500/50 dark:text-white transition-all`}
+              className={`w-full ${language === 'ar' ? 'pr-12 pl-6' : 'pl-12 pr-6'} py-3.5 bg-[var(--edix-primary-surface)] dark:bg-[var(--edix-surface-dark-3)] border border-slate-100 dark:border-slate-700 rounded-2xl text-[13px] font-medium focus:outline-none focus:ring-2 focus:ring-[#00629D]/30 focus:border-[#00629D] text-slate-900 dark:text-white transition-all`}
             />
           </div>
           
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as Status | 'All')}
-            className="px-4 py-3.5 bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 rounded-2xl text-[13px] font-bold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
+            className="px-4 py-3.5 bg-[var(--edix-primary-surface)] dark:bg-[var(--edix-surface-dark-3)] border border-slate-100 dark:border-slate-700 rounded-2xl text-[13px] font-bold text-slate-700 dark:text-slate-100 focus:outline-none cursor-pointer"
           >
             <option value="All">{t.allStatus}</option>
             <option value="Review Required">{t.statusReview}</option>
@@ -138,9 +138,9 @@ const SubmissionsTable: React.FC<SubmissionsTableProps> = ({ language, sectorFil
                 <td className="px-8 py-6 text-start text-sm font-bold text-slate-900 dark:text-white">#{item.reference}</td>
                 <td className="px-8 py-6 text-start text-[12px] font-bold text-slate-500">{item.date}</td>
                 <td className="px-8 py-6 text-start">
-                  <Badge variant={item.sector.toLowerCase() as any}>
+                  <span className="text-[13px] font-bold text-slate-900 dark:text-white">
                     {SECTORS.find(s => s.id === item.sector)?.label}
-                  </Badge>
+                  </span>
                 </td>
                 <td className="px-8 py-6 text-start">
                   <span className="text-[13px] font-bold text-slate-900 dark:text-white line-clamp-1">{language === 'ar' ? item.productNameAr : item.productNameEn}</span>
@@ -157,21 +157,21 @@ const SubmissionsTable: React.FC<SubmissionsTableProps> = ({ language, sectorFil
                 <td className="px-8 py-6 text-start">
                   <div className="flex items-center gap-3">
                     <div className="flex-1 w-14 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden shadow-inner">
-                      <div className={`h-full transition-all duration-700 ${item.confidenceScore > 90 ? 'bg-emerald-600' : item.confidenceScore > 70 ? 'bg-amber-500' : 'bg-rose-500'}`} style={{ width: `${item.confidenceScore}%` }}></div>
+                      <div className={`h-full transition-all duration-700 ${item.confidenceScore > 90 ? 'bg-[#008766]' : item.confidenceScore > 70 ? 'bg-amber-500' : 'bg-rose-500'}`} style={{ width: `${item.confidenceScore}%` }}></div>
                     </div>
                     <span className="text-[11px] font-black text-slate-500">{item.confidenceScore}%</span>
                   </div>
                 </td>
                 <td className="px-8 py-6 text-start">
                   <button 
-                    className="flex items-center gap-2 px-4 py-2.5 bg-emerald-700 text-white rounded-xl text-[11px] font-black shadow-lg shadow-emerald-900/20 hover:bg-emerald-800 transition-all uppercase tracking-widest"
+                    className="flex items-center gap-2 px-4 py-2.5 bg-[#00629D] text-white rounded-xl text-[11px] font-black shadow-lg shadow-slate-900/20 hover:bg-[#004A78] transition-all uppercase tracking-widest"
                   >
                     <Send size={12} />
                     {t.submit}
                   </button>
                 </td>
                 <td className="px-8 py-6 text-center">
-                  <ChevronRight size={20} className={`text-slate-300 group-hover:text-emerald-500 transition-all duration-300 ${language === 'ar' ? 'rotate-180' : ''}`} />
+                  <ChevronRight size={20} className={`text-slate-300 group-hover:text-[#00629D] transition-all duration-300 ${language === 'ar' ? 'rotate-180' : ''}`} />
                 </td>
               </tr>
             ))}

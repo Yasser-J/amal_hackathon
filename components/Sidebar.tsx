@@ -12,9 +12,9 @@ const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="w-64 flex-shrink-0 flex flex-col h-full bg-[#1A1F2E] text-slate-300 border-r border-slate-800 transition-all duration-300">
+    <aside className="w-64 flex-shrink-0 flex flex-col h-full bg-[var(--edix-surface-dark-1)] text-slate-300 border-r border-slate-800 transition-all duration-300">
       <div className="p-6 flex items-center gap-3">
-        <div className="bg-emerald-500 p-2 rounded-lg text-white">
+        <div className="bg-[#00629D] p-2 rounded-lg text-white">
           <ShieldCheck size={24} />
         </div>
         <div>
@@ -29,8 +29,8 @@ const Sidebar: React.FC = () => {
             key={item.label}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
               item.active 
-                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' 
-                : 'hover:bg-slate-800 hover:text-white'
+                ? 'bg-[#00629D]/20 text-[var(--edix-primary-soft)] border border-[#00629D]/40' 
+                : 'hover:bg-[var(--edix-surface-dark-2)] hover:text-white'
             }`}
           >
             {item.icon}
@@ -40,11 +40,11 @@ const Sidebar: React.FC = () => {
       </nav>
 
       <div className="p-4 border-t border-slate-800">
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-[var(--edix-surface-dark-2)] hover:text-white transition-colors">
           <Settings size={20} />
           Settings
         </button>
-        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-slate-800 hover:text-white transition-colors">
+        <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-[var(--edix-surface-dark-2)] hover:text-white transition-colors">
           <HelpCircle size={20} />
           Help & Docs
         </button>

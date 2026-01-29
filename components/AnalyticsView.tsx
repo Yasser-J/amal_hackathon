@@ -90,17 +90,17 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
   return (
     <div className="space-y-12 animate-universal">
       {/* Interval Picker - Re-styled for consistency */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] shadow-sm border border-slate-50 dark:border-slate-800/50">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-8 rounded-[2.5rem] shadow-sm border border-slate-50 dark:border-slate-800/50">
         <div className="text-start">
           <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">{t.analytics}</h2>
           <p className="text-sm text-slate-500 font-bold mt-1 uppercase tracking-widest opacity-60">Insight Report • Real-time Data</p>
         </div>
-        <div className="flex bg-slate-50 dark:bg-slate-950 p-1.5 rounded-2xl shadow-inner border border-slate-100 dark:border-slate-800">
+        <div className="flex bg-slate-50 dark:bg-[var(--edix-surface-dark-3)] p-1.5 rounded-2xl shadow-inner border border-slate-100 dark:border-slate-800">
           {(['Daily', 'Monthly', 'Annual'] as const).map(opt => (
             <button
               key={opt}
               onClick={() => setInterval(opt)}
-              className={`px-8 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${interval === opt ? 'bg-white dark:bg-slate-800 text-emerald-600 shadow-md ring-1 ring-slate-100 dark:ring-slate-700' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'}`}
+              className={`px-8 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all ${interval === opt ? 'bg-white dark:bg-[var(--edix-surface-dark-3)] text-[var(--edix-primary-soft)] shadow-md ring-1 ring-slate-100 dark:ring-slate-700' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'}`}
             >
               {t[opt.toLowerCase() as keyof typeof t] || opt}
             </button>
@@ -109,9 +109,9 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="bg-white dark:bg-slate-900 p-10 rounded-[3rem] shadow-sm border border-slate-50 dark:border-slate-800/50 flex flex-col hover-lift">
+        <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-10 rounded-[3rem] shadow-sm border border-slate-50 dark:border-slate-800/50 flex flex-col hover-lift">
           <div className="flex items-center gap-4 mb-10">
-            <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl text-emerald-600">
+            <div className="p-3 bg-[var(--edix-primary-surface)] dark:bg-[var(--edix-surface-dark-3)] rounded-2xl text-[#00629D]">
               <Shield size={24} />
             </div>
             <div className="text-start">
@@ -142,7 +142,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-10 rounded-[3rem] shadow-sm border border-slate-50 dark:border-slate-800/50 flex flex-col hover-lift">
+        <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-10 rounded-[3rem] shadow-sm border border-slate-50 dark:border-slate-800/50 flex flex-col hover-lift">
           <div className="flex items-center gap-4 mb-10">
             <div className="p-3 bg-amber-50 dark:bg-amber-500/10 rounded-2xl text-amber-600">
               <Clock size={24} />
@@ -166,7 +166,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 p-10 rounded-[3rem] shadow-sm border border-slate-50 dark:border-slate-800/50 hover-lift">
+      <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-10 rounded-[3rem] shadow-sm border border-slate-50 dark:border-slate-800/50 hover-lift">
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-blue-50 dark:bg-blue-500/10 rounded-2xl text-blue-600">
@@ -179,7 +179,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
           </div>
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/20"></div>
+              <div className="w-3 h-3 rounded-full bg-[#00629D] shadow-lg shadow-slate-900/20"></div>
               <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Inflow</span>
             </div>
             <div className="flex items-center gap-3">
@@ -193,8 +193,8 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
             <AreaChart data={submissionsTimeline} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorCount" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#00629D" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#00629D" stopOpacity={0}/>
                 </linearGradient>
                 <linearGradient id="colorApps" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
@@ -205,7 +205,7 @@ const AnalyticsView: React.FC<AnalyticsViewProps> = ({ language }) => {
               <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 9, fontWeight: 900, fill: '#94a3b8' }} dy={10} />
               <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 9, fontWeight: 900, fill: '#94a3b8' }} />
               <Tooltip content={<CustomTooltip />} />
-              <Area type="monotone" dataKey="count" stroke="#10b981" strokeWidth={5} fillOpacity={1} fill="url(#colorCount)" />
+              <Area type="monotone" dataKey="count" stroke="#00629D" strokeWidth={5} fillOpacity={1} fill="url(#colorCount)" />
               <Area type="monotone" dataKey="approvals" stroke="#3b82f6" strokeWidth={5} fillOpacity={1} fill="url(#colorApps)" />
             </AreaChart>
           </ResponsiveContainer>

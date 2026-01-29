@@ -26,12 +26,12 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
     <div className="space-y-8 animate-universal">
       {/* Sub-Tabs Selector for Review and Applicant Details */}
       <div className="flex items-center justify-center lg:justify-start">
-        <div className="flex items-center bg-white dark:bg-[#1A1F2E] p-1.5 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
+        <div className="flex items-center bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-1.5 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
           <button 
             onClick={() => setActiveSubTab('review')}
             className={`flex items-center gap-3 px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${
               activeSubTab === 'review' 
-                ? 'bg-emerald-700 text-white shadow-lg shadow-emerald-900/20' 
+                ? 'bg-[#00629D] text-white shadow-lg shadow-slate-900/30' 
                 : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
@@ -42,7 +42,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
             onClick={() => setActiveSubTab('applicant')}
             className={`flex items-center gap-3 px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${
               activeSubTab === 'applicant' 
-                ? 'bg-emerald-700 text-white shadow-lg shadow-emerald-900/20' 
+                ? 'bg-[#00629D] text-white shadow-lg shadow-slate-900/30' 
                 : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
@@ -55,7 +55,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
       {activeSubTab === 'review' ? (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 text-start">
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white dark:bg-[#1A1F2E] p-10 rounded-[2.5rem] border border-gray-100 dark:border-slate-800 shadow-sm">
+            <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-10 rounded-[2.5rem] border border-gray-100 dark:border-slate-800 shadow-sm">
               <div className="flex justify-between items-start mb-8">
                 <div>
                   <Badge variant="success" className="mb-4 uppercase tracking-[0.2em] font-black">Ready for Validation</Badge>
@@ -90,14 +90,14 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
                 </div>
                 <div>
                   <h4 className="text-[11px] font-black text-gray-400 uppercase tracking-widest mb-4">{t.aiJustification}</h4>
-                  <p className="text-[15px] text-emerald-800 dark:text-emerald-400 leading-relaxed bg-emerald-50 dark:bg-emerald-500/10 p-6 rounded-[2rem] border border-emerald-100 dark:border-emerald-500/20 font-medium italic">
+                  <p className="text-[15px] text-[#004A78] dark:text-[var(--edix-primary-soft)] leading-relaxed bg-[var(--edix-primary-surface)] dark:bg-[var(--edix-surface-dark-3)] p-6 rounded-[2rem] border border-slate-100 dark:border-slate-700 font-medium italic">
                     "{submission.details?.justification}"
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white dark:bg-[#1A1F2E] p-10 rounded-[2.5rem] border border-gray-100 dark:border-slate-800 shadow-sm">
+            <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] p-10 rounded-[2.5rem] border border-gray-100 dark:border-slate-800 shadow-sm">
               <h3 className="text-xl font-black text-gray-900 dark:text-white mb-8 flex items-center gap-3">
                 <ImageIcon size={24} className="text-emerald-500" />
                 {t.attachments}
@@ -120,7 +120,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
           <div className="space-y-8">
             <div className="bg-white dark:bg-[#1A1F2E] p-10 rounded-[2.5rem] border border-gray-100 dark:border-slate-800 shadow-sm">
               <h3 className="text-xl font-black text-gray-900 dark:text-white mb-10 flex items-center gap-3">
-                <Clock size={24} className="text-emerald-500" />
+                <Clock size={24} className="text-[#00629D]" />
                 {t.timeline}
               </h3>
               <div className="space-y-10 relative">
@@ -128,8 +128,8 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
                 {submission.details?.timeline.map((step, i) => (
                   <div key={i} className="flex items-start gap-6 relative z-10">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-lg ${
-                      step.status === 'completed' ? 'bg-emerald-500 text-white' : 
-                      step.status === 'current' ? 'bg-white dark:bg-slate-800 border-4 border-emerald-500 text-emerald-500 scale-125' : 
+                      step.status === 'completed' ? 'bg-[#008766] text-white' : 
+                      step.status === 'current' ? 'bg-white dark:bg-slate-800 border-4 border-[#00629D] text-[#00629D] scale-125' : 
                       'bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 text-gray-300'
                     }`}>
                       {step.status === 'completed' ? <CheckCircle2 size={16} /> : <Circle size={16} />}
@@ -143,11 +143,11 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
               </div>
             </div>
 
-            <div className="bg-slate-900 dark:bg-emerald-950/20 p-10 rounded-[2.5rem] shadow-2xl space-y-6">
+            <div className="bg-slate-900 dark:bg-[var(--edix-surface-dark-3)] p-10 rounded-[2.5rem] shadow-2xl space-y-6">
               <h4 className="text-[11px] font-black text-white uppercase tracking-[0.3em] mb-4 text-center">Validation Verdict</h4>
               <button 
                 onClick={() => setConfirmState({ type: 'Approve' })}
-                className="w-full py-4 bg-emerald-600 text-white text-[11px] font-black rounded-2xl shadow-xl shadow-emerald-900/40 hover:bg-emerald-500 hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
+                className="w-full py-4 bg-[#00629D] text-white text-[11px] font-black rounded-2xl shadow-xl shadow-slate-900/40 hover:bg-[#004A78] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
               >
                 Approve Submission
               </button>
@@ -166,8 +166,8 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
 
       {confirmState.type && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-in fade-in duration-500">
-          <div className="bg-white dark:bg-[#1A1F2E] w-full max-w-sm p-10 rounded-[3rem] shadow-2xl border border-gray-100 dark:border-slate-800 animate-in zoom-in-95 duration-400 text-center">
-            <div className={`w-20 h-20 rounded-[2rem] mx-auto mb-8 flex items-center justify-center ${confirmState.type === 'Approve' ? 'bg-emerald-50 text-emerald-500' : 'bg-rose-50 text-rose-500'}`}>
+          <div className="bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] w-full max-w-sm p-10 rounded-[3rem] shadow-2xl border border-gray-100 dark:border-slate-800 animate-in zoom-in-95 duration-400 text-center">
+            <div className={`w-20 h-20 rounded-[2rem] mx-auto mb-8 flex items-center justify-center ${confirmState.type === 'Approve' ? 'bg-[var(--edix-primary-surface)] text-[#004A78]' : 'bg-rose-50 text-rose-500'}`}>
               <AlertTriangle size={40} />
             </div>
             <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-3">{t.confirmTitle}</h3>
@@ -177,7 +177,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({ submission, language, onA
             <div className="flex flex-col gap-4">
               <button 
                 onClick={handleDecision}
-                className={`w-full py-4 rounded-2xl text-white text-xs font-black shadow-xl transition-all uppercase tracking-widest ${confirmState.type === 'Approve' ? 'bg-emerald-600 shadow-emerald-500/30 hover:bg-emerald-500' : 'bg-rose-600 shadow-rose-500/30 hover:bg-rose-500'}`}
+                className={`w-full py-4 rounded-2xl text-white text-xs font-black shadow-xl transition-all uppercase tracking-widest ${confirmState.type === 'Approve' ? 'bg-[#00629D] shadow-slate-900/30 hover:bg-[#004A78]' : 'bg-rose-600 shadow-rose-500/30 hover:bg-rose-500'}`}
               >
                 {t.yes}
               </button>

@@ -29,7 +29,7 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({ companyName, language }
     <div className="space-y-8 animate-in fade-in slide-in-from-left-4 duration-500">
       {/* Performance Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white dark:bg-[#1A1F2E] p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-[var(--edix-surface-dark-2)] p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500">
               <Files size={20} />
@@ -40,7 +40,7 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({ companyName, language }
             </div>
           </div>
         </div>
-        <div className="bg-white dark:bg-[#1A1F2E] p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-[var(--edix-surface-dark-2)] p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-500/10 text-blue-500">
               <CheckCircle2 size={20} />
@@ -51,7 +51,7 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({ companyName, language }
             </div>
           </div>
         </div>
-        <div className="bg-white dark:bg-[#1A1F2E] p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
+        <div className="bg-white dark:bg-[var(--edix-surface-dark-2)] p-6 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm">
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl bg-violet-50 dark:bg-violet-500/10 text-violet-500">
               <TrendingUp size={20} />
@@ -64,7 +64,7 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({ companyName, language }
         </div>
       </div>
 
-      <div className="bg-white dark:bg-[#1A1F2E] p-10 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm text-start">
+      <div className="bg-white dark:bg-[var(--edix-surface-dark-2)] p-10 rounded-2xl border border-gray-100 dark:border-slate-800 shadow-sm text-start">
         <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
           <div className="w-24 h-24 rounded-2xl bg-emerald-500 flex items-center justify-center text-white text-3xl font-black shadow-xl">
             {companyName.charAt(0)}

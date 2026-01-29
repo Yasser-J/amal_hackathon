@@ -1,0 +1,45 @@
+/* Global Edix color system */
+
+:root {
+  /* On-surface colors */
+  --edix-light-on-surface-variant: #42474E; /* lightOnSurfaceVariant */
+
+  --edix-dark-on-surface: #E2E2E5;          /* darkOnSurface */
+  --edix-dark-on-surface-variant: #C2C6CF;  /* darkOnSurfaceVariant */
+
+  /* Primary / secondary */
+  --edix-primary: #00629D;        /* edix.primary.40 */
+  --edix-primary-soft: #99CBFF;   /* primary */
+  --edix-primary-surface: #E8F1FF;/* refPrimaryPrimary95 */
+
+  --edix-secondary-soft: #D5E4F7; /* secondary90 */
+  --edix-secondary: #3A4857;      /* edix.secondary.30 */
+
+  /* Success / tertiary */
+  --edix-success: #008766;        /* edix.success.50 */
+  --edix-success-soft: #66DBB1;   /* darkSuccess / edix.success.80 */
+  --edix-tertiary-soft: #D4BEE6;  /* darkTertiary */
+
+  /* Dark surfaces */
+  --edix-surface-dark-0: #1A1C1E;
+  --edix-surface-dark-1: #202529;
+  --edix-surface-dark-2: #242A30;
+  --edix-surface-dark-3: #282F37;
+  --edix-surface-dark-4: #293139;
+  --edix-surface-dark-5: #2C353E;
+
+  /* Light / neutral surfaces */
+  --edix-surface-light: #FCFCFF;      /* edix.primary.99 */
+  --edix-surface-light-card: #FFFFFF; /* neutral.100 */
+}
+
+body {
+  background-color: var(--edix-surface-light);
+  color: #1D232B; /* edix.neutral.10 */
+}
+
+html.dark body {
+  background-color: var(--edix-surface-dark-0);
+  color: var(--edix-dark-on-surface);
+}
+

@@ -38,7 +38,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`flex h-screen bg-[#f8fafc] dark:bg-[#020617] overflow-hidden transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
+    <div className={`flex h-screen bg-[var(--edix-surface-light)] dark:bg-[var(--edix-surface-dark-0)] overflow-hidden transition-colors duration-500 ${language === 'ar' ? 'font-arabic' : ''}`}>
       <div className="flex-1 flex flex-col min-w-0 h-full">
         <Header 
           isDarkMode={isDarkMode} 
@@ -57,8 +57,8 @@ const App: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-end gap-5">
                   <div className="flex items-center gap-4">
                     <div className="relative group">
-                      <div className="flex items-center gap-3 px-5 py-3.5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm transition-all hover:border-emerald-500/50">
-                        <Calendar size={18} className="text-emerald-500 shrink-0" />
+                      <div className="flex items-center gap-3 px-5 py-3.5 bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm transition-all hover:border-[#00629D]/60">
+                        <Calendar size={18} className="text-[#00629D] shrink-0" />
                         <select 
                           value={timeFilter}
                           onChange={(e) => setTimeFilter(e.target.value as TimeFilter)}
@@ -70,8 +70,8 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="relative group">
-                      <div className="flex items-center gap-3 px-5 py-3.5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm transition-all hover:border-emerald-500/50">
-                        <Filter size={18} className="text-emerald-500 shrink-0" />
+                      <div className="flex items-center gap-3 px-5 py-3.5 bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm transition-all hover:border-[#00629D]/60">
+                        <Filter size={18} className="text-[#00629D] shrink-0" />
                         <select 
                           value={sectorFilter}
                           onChange={(e) => setSectorFilter(e.target.value as Sector | 'All')}
@@ -96,8 +96,8 @@ const App: React.FC = () => {
               <AnalyticsView language={language} />
             ) : currentView === 'review' && selectedSubmission ? (
               <div className="space-y-8">
-                <button onClick={() => setCurrentView('dashboard')} className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-emerald-600 transition-all group">
-                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 group-hover:scale-110 transition-transform">
+                <button onClick={() => setCurrentView('dashboard')} className="flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-[#00629D] transition-all group">
+                  <div className="p-3 rounded-2xl bg-[var(--edix-surface-light-card)] dark:bg-[var(--edix-surface-dark-2)] shadow-sm border border-slate-100 dark:border-slate-800 group-hover:scale-110 transition-transform">
                     <ArrowLeft size={18} />
                   </div>
                   {t.back}
